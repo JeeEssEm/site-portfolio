@@ -1,0 +1,60 @@
+.gradient {
+    background: linear-gradient(107.56deg, #FF9482 0%, #7D77FF 100%);
+}
+
+.glass-board {
+    background: linear-gradient(115.95deg, rgba(239, 239, 239, 0.6) 10.92%, rgba(255, 255, 255, 0.08) 96.4%);
+    box-sizing: border-box;
+    border: rgba(255, 255, 255, 0.6) solid 1px;
+    backdrop-filter: blur(38px);
+}
+
+.p {
+    color: #616161;
+    font-weight: 400;
+    line-height: 100%;
+}
+
+.p:hover {
+    color: #616161;
+}
+
+.a-active {
+    border-bottom: solid #4871CB;
+    text-decoration: none;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+
+.p-text {
+    color: #616161;
+    font-weight: 400;
+    font-size: 2em;
+}
+
+.outline-button {
+    border-color: #4871cb!important;
+    color: #616161;
+    font-weight: 500;
+}
+.outline-button:hover {
+    background-color: #4871cb!important;
+}
+
+.btn {
+    font-size: 1.8em;
+}
+
+.bold-text {
+    color: #4871cb;
+    font-weight: 500;
+}
+
+.logo {
+    max-width: 75%;
+    max-height: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+}
