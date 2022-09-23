@@ -11,9 +11,10 @@ class Story {
 
     render() {
         let result = "";
+
         if (this.isRight) {
             result = `
-        <div class="row glass-board p-3 mt-5 rounded">
+        <div class="row glass-board p-3 mt-5 rounded" id="glass_${this.id}">
             <div class="col-4 d-flex align-items-center justify-content-center">
                 <img src="../static/images/${this.image}" alt="" class="rounded" style="border: 4px solid #4871CB; width: 100%; height: auto">
             </div>
@@ -27,7 +28,7 @@ class Story {
         }
         else {
             result = `
-        <div class="row glass-board p-3 mt-5 rounded">
+        <div class="row glass-board p-3 mt-5 rounded" id="glass_${this.id}">
             <div class="col-8 p-text">
                 <strong>${this.theme}</strong>
                 <p>${this.text}</p>
@@ -43,8 +44,8 @@ class Story {
         if (this.miniStories.length > 0) {
             result += `
             <div class="col-12 d-flex justify-content-center">
-                <button onclick="dropdown_list(${this.id})" style="background: transparent; border: none">
-                    <span class="arrow"></span>
+                <button onclick="dropdown_list('${this.id}')" class="drop-button">
+                    <span class="arrow" id="arrow_${this.id}"></span>
                 </button>
             </div>
             `
@@ -58,7 +59,7 @@ class Story {
         if (this.miniStories.length === 0)
             return "";
 
-        let result = `<ul class=\"container col-8 dropdown-items\" id=\"${this.id}\" style=\"display: none\">`;
+        let result = `<ul class=\"container col-8 dropdown-items mb-5\" id=\"mini_story_${this.id}\" style=\"height: 0\">`;
         for(let i = 0; i < this.miniStories.length; i++) {
             let st = this.miniStories[i];
             result += `
@@ -101,13 +102,26 @@ function build_stories() {
 
 
 function dropdown_list(id) {
-    let element = document.getElementById(id);
+    let element = document.getElementById(`mini_story_${id}`);
+    // let glass = document.getElementById(`glass_${id}`);
+    let arrow = document.getElementById(`arrow_${id}`);
 
-    if (element.style.display === "none")
-        element.style.display = "";
+    if (element.style.height === "0px")
+    {
+        element.style.paddingTop = "2rem"
+        element.style.paddingBottom = "0.5rem"
+        element.style.height = "auto"
+        arrow.style.rotate = "180deg"
+        // glass.classList.remove("mb-5")
+    }
 
-    else
-        element.style.display = "none";
+    else {
+        arrow.style.rotate = "0deg"
+        element.style.paddingTop = "0"
+        element.style.paddingBottom = "0"
+        element.style.height = "0"
+
+    }
 }
 
 
@@ -115,18 +129,12 @@ const PersonalStories = [
     {
         img: 'maxonchick.jpg',
         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-        theme: 'Theme name'
-    },
-
-    {
-        img: 'maxonchick.jpg',
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
         theme: 'Theme name',
         miniStories: [
             {
                 img: 'logo.png',
-                text: "some cool story",
-                theme: "story"
+                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                theme: "Veryyyyy big story naminggg"
             },
 
             {
@@ -135,8 +143,13 @@ const PersonalStories = [
                 theme: "story"
             }
         ]
-    }
+    },
 
+    {
+        img: 'maxonchick.jpg',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        theme: 'Theme name'
+    }
 ];
 
 const container = document.getElementById("stories_container");
