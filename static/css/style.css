@@ -1,5 +1,5 @@
 .gradient {
-    background: linear-gradient(107.56deg, #FF9482 0%, #7D77FF 100%);
+    background: linear-gradient(107.56deg, #FF9482 0%, #7D77FF 100%) fixed;
 }
 
 .glass-board {
@@ -65,6 +65,7 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    background-repeat: no-repeat;
 }
 
 
@@ -86,4 +87,19 @@ html, body {
     bottom: -5px;
     transform: scaleX(0);
     transition: transform 0.25s ease-out;
+}
+
+.dropdown-items {
+    border-left: #616161 solid 0.5rem;
+    border-right: #616161 solid 0.5rem;
+    padding-top: 2rem;
+    padding-bottom: 0.5rem;
+}
+
+.arrow {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    background: image("../images/arrow.svg") no-repeat 50% 50%;
+    background-size: 100% 100%;
 }
