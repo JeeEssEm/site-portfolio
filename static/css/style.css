@@ -18,7 +18,7 @@
 }
 .p:hover {
     color: #616161;
-    /*border-bottom: solid #4871CB;*/
+
 }
 
 .a-active {
@@ -68,7 +68,6 @@ html, body {
     background-repeat: no-repeat;
 }
 
-
 .underline-animation {
     position: relative;
 }
@@ -90,11 +89,8 @@ html, body {
 }
 
 .dropdown-items {
-    border-left: #616161 solid 0.5rem;
-    border-right: #616161 solid 0.5rem;
-    transition: 0.25s ease;
+    transition: 0.25s ease-in-out;
     overflow-y: hidden;
-
 }
 
 .arrow {
@@ -113,4 +109,9 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.link {
+    color: #4871CB;
+    text-decoration: none;
 }
